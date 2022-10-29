@@ -1,7 +1,8 @@
 # Call files 
-import kruskal_acpm
-import data_structure
-import interface
+import KruskalAcpm
+import DataStructure
+import Interface
+import Djikstra
 
 #create dico with the file
 f = open("data/metro.txt", "r")
