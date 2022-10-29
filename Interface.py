@@ -57,7 +57,7 @@ departure.pack(side='left')
 departure_entry = Entry(menu_frame_departure, textvariable=departure_var, bg='#8DE3D0')
 departure_entry.pack(side='right')
 
-destination = Label(menu_frame_destination, text="Choisissez la station de départ :", bg='#38B99C')
+destination = Label(menu_frame_destination, text=" Choisissez la station d'arrivée :", bg='#38B99C')
 destination.pack(side='left')
 destination_entry = Entry(menu_frame_destination, textvariable=destination_var, bg='#8DE3D0')
 destination_entry.pack(side='right')
