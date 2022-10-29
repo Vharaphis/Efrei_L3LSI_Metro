@@ -3,6 +3,7 @@ import KruskalAcpm
 import DataStructure
 import Interface
 import Djikstra
+import Drawing
 
 #create dico with the file
 f = open("data/metro.txt", "r")
