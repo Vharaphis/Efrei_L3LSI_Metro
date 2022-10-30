@@ -30,4 +30,4 @@ def read_itinary1(dico_w_name,path):
             depart_ligne = depart_apres
             c+="Vous devez descendre à la station"+dico_w_name[path[1][i]][0]+"puis prendre la ligne "+str(depart_apres)+" direction "+direction_of(dico_w_name,depart_ligne,path,path[1][i])+'\n'
     c+="Vous êtes arrivé à la station "+dico_w_name[path[1][len(path[1])-1]][0]+"ligne "+str(depart_ligne)
-    return c;
+    return c

@@ -62,11 +62,16 @@ destination.pack(side='left')
 destination_entry = Entry(menu_frame_destination, textvariable=destination_var, bg='#8DE3D0')
 destination_entry.pack(side='right')
 
+
 #add buttons to submit entries in departure and destination + to show the ACPM
 acpm_button = Button(menu_frame, text="Afficher l'ACPM", font=("Courrier", 8), bg="#8DE3D0", command=main.display_acpm)
 acpm_button.pack(side='bottom', pady=30)
 djikstra_button = Button(menu_frame, text="Calculer le temps de trajet", font=("Courrier", 8), bg="#8DE3D0", command=submit_path)
 djikstra_button.pack(side='bottom', pady=10)
+
+#exemple of input
+exemple_of_entry = Label(menu_frame, text="Exemple de saisie : Bastille - Belleville", font=("Courrier", 8), bg='#38B99C')
+exemple_of_entry.pack(side='bottom')
 
 #add the map of the metro image
 metro_map_image_width = 987

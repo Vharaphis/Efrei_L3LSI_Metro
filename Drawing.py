@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw
 
 #input file postpoint.txt
 #output matrix with coordinates of all stations
-def matrixééééé(f):
+def matrixe(f):
     d=[]
     for line in f:
         line = line.rstrip('\n') #delete the \n at the end of each line
@@ -24,7 +24,6 @@ def drawing_path(path):
         img1.line(shape,fill = "black",width=3)
     im.show()
 
-
 #input number of the station
 #output coordinates of the station
 
@@ -40,7 +39,7 @@ def drawing_ACPM(ACPM):
 
     for i in range(len(ACPM)):
         a = get_coordinate(ACPM[i][0])
-        b= get_coordinate(ACPM[i][1])
+        b = get_coordinate(ACPM[i][1])
         shape = [(int(a[0]), int(a[1])), (int(b[0]), int(b[1]))]
         img1.line(shape, fill="black", width=3)
 
