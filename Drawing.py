@@ -14,12 +14,12 @@ def matrixe(f):
 #input path from point a to point b
 #output drawing of the path
 
-def drawing_path(path):
+def drawing_path(path,matrix_point,dico2):
     im = Image.open("data/metrof_r.png")
     img1 = ImageDraw.Draw(im)
     for i in range(len(path[1])-1):
-        a = get_coordinate(path[1][i])
-        b= get_coordinate(path[1][i+1])
+        a = get_coordinate(path[1][i],matrix_point,dico2)
+        b= get_coordinate(path[1][i+1],matrix_point,dico2)
         shape = [(int(a[0]),int(a[1])),(int(b[0]),int(b[1]))]
         img1.line(shape,fill = "black",width=3)
     im.show()
@@ -33,13 +33,13 @@ def get_coordinate(a,matrix_point,dico2):
             return matrix_point[i][:2]
 
 
-def drawing_ACPM(ACPM):
+def drawing_ACPM(ACPM,matrix_point,dico2):
     im = Image.open("data/metrof_r.png")
     img1 = ImageDraw.Draw(im)
 
     for i in range(len(ACPM)):
-        a = get_coordinate(ACPM[i][0])
-        b = get_coordinate(ACPM[i][1])
+        a = get_coordinate(ACPM[i][0],matrix_point,dico2)
+        b = get_coordinate(ACPM[i][1],matrix_point,dico2)
         shape = [(int(a[0]), int(a[1])), (int(b[0]), int(b[1]))]
         img1.line(shape, fill="black", width=3)
 
