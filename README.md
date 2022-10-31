@@ -4,7 +4,7 @@ Project at L3 LSI Efrei - Simulating optimize deplacement in metro of paris usin
 How to use :
 
 With executable :
- - extract the compressed folder "executable.zip"
+ - extract the compressed folder "Projet_metro_executable.zip"
  - enter in the folder
  - run "main.exe"
 
