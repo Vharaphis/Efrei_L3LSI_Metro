@@ -17,3 +17,5 @@ With python :
 
 Possible issue :
 If the display of the map is cropped on your screen, it may comes from the scaling of your system. Put the scale and layout to 100% to fix it.
+
+Credits: HOANG Benjamin - LUC Clément - MUTTI François - SADKI Yani
