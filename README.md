@@ -2,6 +2,13 @@
 Project at L3 LSI Efrei - Simulating optimize deplacement in metro of paris using Dijkstra and Kruskal
 
 How to use :
+
+With executable :
+ - extract the compressed folder "executable.zip"
+ - enter in the folder
+ - run "main.exe"
+
+With python :
  - run main.py in the directory (py main.py)
  - use the graphic interface to search for the shortest path between 2 stations
  - enter the departure station and the destination station, then click on the button "Calculer le temps de trajet"
