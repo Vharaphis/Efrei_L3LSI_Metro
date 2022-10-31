@@ -1,10 +1,8 @@
 # Call files 
-import KruskalAcpm
 import DataStructure
 import Interface
-import Djikstra
 import Drawing
-import DisplayPcc
+
 
 #create dico with the file
 file = open("data/metro.txt", "r",encoding='utf-8')
@@ -18,6 +16,3 @@ matrix_point = Drawing.matrixe(file_3)
 
 #display the interface
 display = Interface
-
-if __name__ == '__main__':
-    Drawing.drawing_ACPM(KruskalAcpm.kruskal(nodes_dico), matrix_point, station_dico)

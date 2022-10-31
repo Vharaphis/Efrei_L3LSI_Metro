@@ -1,6 +1,5 @@
 #imports for the display
 from cProfile import label
-from sqlite3 import Row
 from tkinter import *
 from turtle import back, title, width
 from webbrowser import get
@@ -75,7 +74,7 @@ def display_ACPM():
 
     for widgets in frame1.winfo_children():
         widgets.destroy()
-    label = Label(frame1, text="Poids de l'ACPM : " + str(ACPM1[1]), background='#38B99C')
+    label = Label(frame1, text="Poids de l'ACPM : " + str(ACPM1[1]), background='#38B99C',font="Helvetica 14 bold")
     label.pack(side=BOTTOM)
 
 
@@ -122,6 +121,6 @@ map_frame.pack(side='right')
 #display box text output
 
 frame1 = Frame(window, background="black")
-frame1.place(x=0, y=650)
+frame1.place(x=0, y=550)
 #display winodw
 window.mainloop()
