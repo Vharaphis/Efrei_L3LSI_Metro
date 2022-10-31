@@ -24,7 +24,7 @@ menu_bar = Menu(window)
 #create options in the menu
 file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label="Quitter", command=window.quit)
-menu_bar.add_cascade(label="Fichier", menu=file_menu)
+menu_bar.add_cascade(label="Options", menu=file_menu)
 
 #add menu to the window
 window.config(menu=menu_bar)
