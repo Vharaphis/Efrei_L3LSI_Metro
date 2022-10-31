@@ -20,11 +20,16 @@ def direction_of(dico,dico_w_name,line,path,stations_number):
 
 
 def read_itinary1(dico,dico_w_name,path):
+    sec=path[0]
+    min=0
+    while (sec>=60):
+        min+=1
+        sec-=60
     nb_stations=-1
     c=""
-    c+="Temps estimé : "+str(path[0])+" secondes\n"
+    c+="Temps estimé : "+str(min)+" minutes et "+str(sec)+" secondes\n"+"\n"
     depart_ligne = int(dico_w_name[path[1][0]][1])
-    c+="Départ : station "+dico_w_name[path[1][0]][0]+" | Vous prenez la ligne "+str(depart_ligne)+", direction "+direction_of(dico,dico_w_name,depart_ligne,path,path[1][0])+'\n'
+    c+="Départ : "+dico_w_name[path[1][0]][0]+" | Vous prenez la ligne "+str(depart_ligne)+", direction "+direction_of(dico,dico_w_name,depart_ligne,path,path[1][0])+'\n'
     for i in range(len(path[1])):
         nb_stations+=1
         depart_apres = int(dico_w_name[path[1][i]][1])
@@ -36,5 +41,5 @@ def read_itinary1(dico,dico_w_name,path):
             c+="Vous descendez à la station "+dico_w_name[path[1][i]][0]+" pour prendre la ligne "+str(depart_apres)+", direction "+direction_of(dico,dico_w_name,depart_ligne,path,path[1][i])+'\n'
     if nb_stations!=0:
         c+="Vous restez sur celle ligne pour "+str(nb_stations)+" stations"+'\n'        
-    c+="Arrivée : station "+dico_w_name[path[1][len(path[1])-1]][0]
+    c+="Arrivée : "+dico_w_name[path[1][len(path[1])-1]][0]
     return c

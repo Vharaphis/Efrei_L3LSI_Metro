@@ -1,6 +1,5 @@
 #imports for the display
 from cProfile import label
-from sqlite3 import Row
 from tkinter import *
 from turtle import back, title, width
 from webbrowser import get
