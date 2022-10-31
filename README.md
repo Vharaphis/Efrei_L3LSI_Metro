@@ -14,3 +14,6 @@ With python :
  - enter the departure station and the destination station, then click on the button "Calculer le temps de trajet"
  - use the button "Afficher ACPM" to show the ACPM of the map
  - use the menu to quit application
+
+Possible issue :
+If the display of the map is cropped on your screen, it may comes from the scaling of your system. Put the scale and layout to 100% to fix it.
