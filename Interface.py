@@ -4,10 +4,12 @@ from sqlite3 import Row
 from tkinter import *
 from turtle import back, title, width
 from webbrowser import get
-
+import Drawing
+import KruskalAcpm
+import DisplayPcc
 #import main file to call different functions
 import main
-
+import Djikstra
 #create a window
 window = Tk()
 
@@ -40,13 +42,43 @@ main_title.pack(side='top', pady=30)
 
 #call the djikstra algo to determine shortest path
 def submit_path():
+    canvas.delete("all") #clear the previous drawing
+    canvas.create_image(metro_map_image_width / 2, metro_map_image_height / 2, image=metro_map_image)
     departure_input = departure_var.get()
     destination_input = destination_var.get()
 
-    main.display_shortest_path(departure_input,destination_input)
+    path = Djikstra.minimumPath(main.nodes_dico, main.station_dico ,departure_input, destination_input)
+    for i in range(len(path[1])-1): #draw the itinary
+        a = Drawing.get_coordinate(path[1][i],main.matrix_point,main.station_dico)
+        b= Drawing.get_coordinate(path[1][i+1],main.matrix_point,main.station_dico)
+        canvas.create_line(int(a[0]),int(a[1]),int(b[0]),int(b[1]),fill = "black",width=5)
 
+    itinary = DisplayPcc.read_itinary1(main.nodes_dico,main.station_dico,path)
+
+    for widgets in frame1.winfo_children(): #clear the frame's content
+        widgets.destroy()
+    label = Label(frame1, text=itinary,background ='#38B99C',justify = "left")
+
+    label.pack()
     departure_var.set("")
     destination_var.set("")
+
+def display_ACPM():
+    canvas.delete("all")
+    canvas.create_image(metro_map_image_width / 2, metro_map_image_height / 2, image=metro_map_image)
+    ACPM1 = KruskalAcpm.kruskal(main.nodes_dico)
+    ACPM = ACPM1[0]
+    for i in range(len(ACPM)):
+        a = Drawing.get_coordinate(ACPM[i][0], main.matrix_point, main.station_dico)
+        b = Drawing.get_coordinate(ACPM[i][1], main.matrix_point, main.station_dico)
+        canvas.create_line(int(a[0]), int(a[1]), int(b[0]), int(b[1]), fill="black", width=5)
+
+    for widgets in frame1.winfo_children():
+        widgets.destroy()
+    label = Label(frame1, text="Poids de l'ACPM : " + str(ACPM1[1]), background='#38B99C')
+    label.pack(side=BOTTOM)
+
+
 
 departure_var = StringVar()
 destination_var = StringVar()
@@ -64,7 +96,7 @@ destination_entry.pack(side='right')
 
 
 #add buttons to submit entries in departure and destination + to show the ACPM
-acpm_button = Button(menu_frame, text="Afficher l'ACPM", font=("Courrier", 8), bg="#8DE3D0", command=main.display_acpm)
+acpm_button = Button(menu_frame, text="Afficher l'ACPM", font=("Courrier", 8), bg="#8DE3D0", command=display_ACPM)
 acpm_button.pack(side='bottom', pady=30)
 djikstra_button = Button(menu_frame, text="Calculer le temps de trajet", font=("Courrier", 8), bg="#8DE3D0", command=submit_path)
 djikstra_button.pack(side='bottom', pady=10)
@@ -87,5 +119,9 @@ menu_frame_departure.pack(side='top')
 menu_frame_destination.pack(side='bottom')
 map_frame.pack(side='right')
 
+#display box text output
+
+frame1 = Frame(window, background="black")
+frame1.place(x=0, y=650)
 #display winodw
 window.mainloop()

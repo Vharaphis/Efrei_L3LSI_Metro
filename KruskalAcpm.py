@@ -92,5 +92,4 @@ def kruskal(dico):
             ACPM_total_weight = ACPM_total_weight + edge[2]
             union(tree_node_u, tree_node_v)
 
-    print('Weight of the ACPM :', ACPM_total_weight)
-    return ACPM
+    return ACPM,ACPM_total_weight
